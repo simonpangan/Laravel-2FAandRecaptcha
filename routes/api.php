@@ -45,10 +45,9 @@ Route::group([
 });
 
 use App\Http\Controllers\API\ForgotPasswordController;
-
+use App\Http\Controllers\API\ResetPasswordController;
 Route::post('forgot', [ResetPasswordController::class, 'forgot']);
 
-use App\Http\Controllers\API\ResetPasswordController;
 Route::post('password/reset/{token}', [ResetPasswordController::class, 'reset']);
 Route::post('password/reset', [ResetPasswordController::class, 'reset']);
 Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail']);

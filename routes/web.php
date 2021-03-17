@@ -19,12 +19,20 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::middleware('verified')->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
-    ->name('home');
+Route::middleware('auth','verified')->group(function () {
+
+    Route::get('/twofactor', function() {
+        return view('twofactor');
+    })->name('twofactor.index');
+    Route::get('verify/resend', [App\Http\Controllers\Auth\TwoFactorController::class, 'resend'])->name('verify.resend');
+    Route::post('verify', [App\Http\Controllers\Auth\TwoFactorController::class, 'store'])->name('verify.store');
+
+    Route::middleware('twofactor')->group(function () {
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+        ->name('home');
+    });
 });
 
 
-
-        
+ 
 
