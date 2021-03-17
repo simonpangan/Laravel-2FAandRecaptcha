@@ -68,6 +68,7 @@
                                 </button>
                             </div>
                         </div>
+                        <input type="hidden" name="recaptcha" id="recaptcha">
                     </form>
                 </div>
             </div>
