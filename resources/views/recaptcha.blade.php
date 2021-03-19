@@ -28,7 +28,7 @@
                         <div class="card-header">{{ __('Register') }}</div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('recaptcha.store') }}">
+                            <form method="POST" id="try" action="{{ route('recaptcha.store') }}" >
                                 @csrf
 
                                 <div class="form-group row">
@@ -49,7 +49,7 @@
                                     <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        <input id="email"type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -103,6 +103,16 @@
                 </div>
             </div>
         </div>
+        <script>
+            // var form = document.getElementById('try');
+            // form.addEventListener('submit', function(e) {
+            //         e.preventDefault();
+            //         var id = document.getElementById("g-recaptcha-response").value;
+            //         console.log(id);
+            //         alert(id);
+            //         document.getElementById("try").submit();
+            // });
+        </script>
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
             async defer>
         </script>

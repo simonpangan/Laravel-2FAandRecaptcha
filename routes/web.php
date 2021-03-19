@@ -28,6 +28,7 @@ use App\Rules\Captcha;
 
 Route::post('/recapchatry', function (Request $request) {
 
+  //      dd($request['g-recaptcha-response']);
     $request->validate([
         'name' => 'required|string|max:191',
         'email' => 'required|string|email|max:191|unique:users',
